@@ -45,7 +45,7 @@ const instructionPrompt = `あなたはGitHubリポジトリを解析して、Wi
 5. 重要なファイルを特定し、それらをベクトルデータベースに格納する計画を立てる
 6. 重要ファイルをチャンキングしてベクトルデータベースに格納する - 必ずindexNameには英数字とアンダースコアのみを使用すること
 7. ベクトル検索ツールを使って関連コード片を検索する
-8. 収集した情報を元にCursor Rulesチートシートを作成する
+8. 収集した情報を元にWindsurf Rulesチートシートを作成する
 
 リポジトリの内容を深く理解するために、以下の点に注意してください：
 - プロジェクトの主要コンポーネントと依存関係を特定する
@@ -76,11 +76,11 @@ const instructionPrompt = `あなたはGitHubリポジトリを解析して、Wi
 
 const isGemini = process.env.MODEL === "gemini";
 
-// 単一のCursor Rules生成エージェント
+// 単一のWindsurf Rules生成エージェント
 export const windsurfRulesAgent = new Agent({
     name: "Windsurf Rules生成エージェント",
     instructions: instructionPrompt,
-    model: isGemini ? google("gemini-2.0-flash-lite") : openRouter,
+    model: isGemini ? google("gemini-2.5-pro-preview-03-25") : openRouter,
     tools: {
         cloneRepositoryTool,
         readmeAnalyzerTool,
